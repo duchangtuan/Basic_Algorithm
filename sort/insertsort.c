@@ -1,18 +1,18 @@
 #include<stdio.h>
 
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 void insertsort(int A[], int N)
 {
     for(int i = 1; i < N; i++)
     {
-        if(A[i-1] > A[i]){
-            int temp = A[i];
-            int j = i;
-            while(j>0&&A[j-1]>temp){
-                A[j] = A[j-1];
-                j--;
-            }
-            A[j] = temp;
-        }
+        for(int j = i; j > 0 && A[j]<A[j-1]; j--)
+            swap(&A[j], &A[j-1]);
     }
 }
 
