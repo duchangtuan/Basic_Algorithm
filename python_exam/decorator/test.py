@@ -25,3 +25,5 @@ def add2(x, y, z):
 
 f = add1(11, 22)
 g = add2(11, 22, 33)
+
+print f, g
