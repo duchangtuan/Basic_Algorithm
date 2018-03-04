@@ -4,7 +4,7 @@
 #include"list.h"
 
 
-ListNode *createListNode(std::vector<int> &nums){
+ListNode *LinkList::createListNode(std::vector<int> &nums){
     ListNode *p1 = new ListNode(0);
     ListNode *p2 = p1;
     for(int i = 0; i < nums.size(); i++){
@@ -18,14 +18,14 @@ ListNode *createListNode(std::vector<int> &nums){
     return p1;
 }
 
-void printNodeList(ListNode *p){
+void LinkList::printListNode(ListNode *p){
     while(p){
         std::cout<<p->val<<" ";
         p = p->next;
     }
 }
 
-ListNode * mergedTwoLists(ListNode *l1, ListNode *l2){
+ListNode * LinkList::mergedTwoLists(ListNode *l1, ListNode *l2){
     ListNode *result = new ListNode(0);
     ListNode *p3 = result;
     ListNode *p1 = l1, *p2 = l2;
@@ -50,7 +50,7 @@ ListNode * mergedTwoLists(ListNode *l1, ListNode *l2){
     return result;
 }
 
-ListNode *mergedTwoListsRecursively(ListNode *l1, ListNode *l2){
+ListNode *LinkList::mergedTwoListsRecursively(ListNode *l1, ListNode *l2){
     if(l1 == NULL)
         return l2;
     if(l2 == NULL)
@@ -64,27 +64,47 @@ ListNode *mergedTwoListsRecursively(ListNode *l1, ListNode *l2){
     }
 }
 
-int main(int argc, char** argv)
-{
-    int arr1[] = {1, 3, 5, 7, 9};
-    int arr2[] = {2, 4, 6, 8, 10};
-    std::vector<int>  ivec1(arr1, arr1+5);
-    ListNode *p1 = createListNode(ivec1);
-
-    std::vector<int> ivec2(arr2, arr2+5);
-    ListNode *p2 = createListNode(ivec2);
-
-    std::cout<<"Node list p1 = ";
-    printNodeList(p1);
-    std::cout<<std::endl;
-
-    std::cout<<"Node list p2 = ";
-    printNodeList(p2);
-    std::cout<<std::endl;
-
-    ListNode *p = mergedTwoListsRecursively(p1, p2);
-    std::cout<<"Node list after merged = ";
-    printNodeList(p);
-    std::cout<<std::endl;
-
+ListNode *LinkList::reverseListNode(ListNode *head) {
+    ListNode *pre = NULL, *next;
+    while(head){
+        next = head->next;
+        head->next = pre;
+        pre = head;
+        head = next;
+    }
+    return pre;
 }
+
+void LinkList::reorderList(ListNode *head){
+    if(!head || !head->next || !head->next->next)
+        return;
+
+    ListNode *slow = head, *fast = head;
+    ListNode *p, *q;
+    while(fast->next && fast->next->next){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    fast = slow->next;
+    slow->next = NULL;
+
+    q = fast;
+    q = LinkList::reverseListNode(q);
+
+    std::cout<<"first part is: ";
+    LinkList::printListNode(q);
+    std::cout<<std::endl;
+    std::cout<<"second part is: ";
+    LinkList::printListNode(head);
+    std::cout<<std::endl;
+
+    p = head;
+    while(p && q) {
+        ListNode *pnext = p->next, *qnext = q->next;
+        p->next = q;
+        q->next = pnext;
+        q = pnext;
+        q = qnext;
+    }
+}
+
