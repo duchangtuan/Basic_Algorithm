@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include"list.h"
+#include"../include/list.h"
 
 void test_merge(){
     LinkList link1, link2;

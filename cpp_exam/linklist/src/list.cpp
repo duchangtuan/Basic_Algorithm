@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 
-#include"list.h"
+#include"../include/list.h"
 
 
 ListNode *LinkList::createListNode(std::vector<int> &nums){
