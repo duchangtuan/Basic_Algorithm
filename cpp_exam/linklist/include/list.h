@@ -22,6 +22,12 @@ public:
     void reorderList(ListNode *head);
     // Reverse the ListNode
     ListNode *reverseListNode(ListNode *head);
+    // Merge two sorted linked list
+    ListNode *mergeList(ListNode *l_head, ListNode *r_head);
+    // Sort list
+    ListNode *sort(ListNode *head, ListNode *tail);
+    // sortList
+    ListNode *sortList(ListNode *head);
 };
 
 #endif // NODELIST_H

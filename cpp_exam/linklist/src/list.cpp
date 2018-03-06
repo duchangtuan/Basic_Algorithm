@@ -108,3 +108,72 @@ void LinkList::reorderList(ListNode *head){
     }
 }
 
+ListNode *LinkList::mergeList(ListNode *l_head, ListNode *r_head){
+    ListNode *merged_head = NULL;
+    ListNode *merged_tail = NULL;
+    while(l_head && r_head){
+        if(l_head->val <= r_head->val){
+            if(merged_head == NULL){
+                merged_head = l_head;
+                merged_tail = l_head;
+            }
+            else{
+                merged_tail->next = l_head;
+                merged_tail = merged_tail->next;
+            }
+            l_head = l_head->next;
+        }
+        else{
+            if(merged_head == NULL){
+                merged_head = r_head;
+                merged_tail = r_head;
+            }
+            else{
+                merged_tail->next = r_head;
+                merged_tail = merged_tail->next;
+            }
+            r_head = r_head->next;
+        }
+    }
+    if(l_head)
+        merged_tail->next = l_head;
+    if(r_head)
+        merged_tail->next = r_head;
+
+    return merged_head;
+}
+
+ListNode *LinkList::sort(ListNode *head, ListNode *tail){
+    if(head == NULL)
+        return head;
+    if(head == tail){
+        head->next = NULL;
+        return head;
+    }
+    ListNode *fast = head;
+    ListNode *slow = head;
+    ListNode *pre;
+    while(fast != tail->next && fast != tail){
+        fast = fast->next->next;
+        pre = slow;
+        slow = slow->next;
+    }
+
+    ListNode *l_head = sort(head, pre);
+    ListNode *r_head = sort(slow, tail);
+    ListNode *merged_head = LinkList::mergeList(l_head, r_head);
+
+    return merged_head;
+}
+
+ListNode *LinkList::sortList(ListNode *head){
+    if(head == NULL || head->next == NULL)
+        return head;
+    ListNode *pre = NULL;
+    ListNode *cur = head;
+    while(cur != NULL){
+        pre = cur;
+        cur = cur->next;
+    }
+    return LinkList::sort(head, pre);
+}
