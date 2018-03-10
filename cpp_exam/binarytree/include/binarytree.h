@@ -19,7 +19,8 @@ public:
     vector<int> inorderTraversal(TreeNode *root);
     vector<int> postorderTraversal1(TreeNode *root);
     vector<int> postorderTraversal2(TreeNode *root);
-
+    int maxDepth_dfs(TreeNode *root);
+    int maxDepth_bfs(TreeNode *root);
 };
 
 #endif //BINARY_TREE

@@ -140,6 +140,37 @@ vector<vector<int> > BinaryTree::levelOrder(TreeNode *root){
     }
     return res;
 }
+int BinaryTree::maxDepth_dfs(TreeNode *root){
+    // get the max depth of a binary tree
+    // use DFS thinking
+    if(root==NULL)
+        return 0;
+    int ldepth = maxDepth_dfs(root->left);
+    int rdepth = maxDepth_dfs(root->right);
+    return max(ldepth, rdepth) + 1;
+}
 
+int BinaryTree::maxDepth_bfs(TreeNode *root){
+    // get the max depth of a binary tree
+    if(root == NULL)
+        return 0;
+    queue<TreeNode *> myQueue;
+    TreeNode *temp;
+    int depth = 0;
+    myQueue.push(root);
+    while(!myQueue.empty()){
+        int len = myQueue.size();
+        for(int i = 0; i < len; i++){
+            temp = myQueue.front();
+            myQueue.pop();   
+            if(temp->left)
+                myQueue.push(temp->left);
+            if(temp->right)
+                myQueue.push(temp->right);
+        }
+        depth++;
+    }
+    return depth;
+}
 
 
