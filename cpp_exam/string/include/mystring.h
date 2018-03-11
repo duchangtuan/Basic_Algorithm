@@ -10,6 +10,7 @@ public:
     //MyString(string str): _str(str){}
 
     string reverseString(string str);
+    string reverseString2(string str);
     int atoi(string str);
 
 private:

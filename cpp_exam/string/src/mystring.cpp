@@ -11,6 +11,18 @@ string MyString::reverseString(string str){
     return ret;
 }
 
+string MyString::reverseString2(string str){
+    int len = str.size();
+    string ret = str;
+    for(int i = 0; i < len / 2; i++){
+        char temp = ret[i];
+        ret[i] = ret[len-1-i];
+        ret[len-i-1] = temp;
+    }
+    return ret;
+}
+
+
 int MyString::atoi(string str){
     int len = str.size();
     if(!len)
