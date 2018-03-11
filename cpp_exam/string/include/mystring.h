@@ -12,6 +12,7 @@ public:
     string reverseString(string str);
     string reverseString2(string str);
     int atoi(string str);
+    char findFirstNonDuplicateChar(string);
 
 private:
     //string _str;

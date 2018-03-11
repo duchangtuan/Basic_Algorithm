@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 #include"mystring.h"
 
 using namespace std;
@@ -20,6 +21,19 @@ string MyString::reverseString2(string str){
         ret[len-i-1] = temp;
     }
     return ret;
+}
+
+char MyString::findFirstNonDuplicateChar(string str){
+    vector<char> vec(256);
+    
+    for(unsigned int i = 0; i < str.size(); i++){
+        vec[str[i]]++;
+    }
+    for(unsigned int i = 0; i < str.size(); i++){
+        if(vec[str[i]] == 1)
+            return str[i];
+    }
+    return -1;
 }
 
 

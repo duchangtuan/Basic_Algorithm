@@ -16,9 +16,16 @@ void test_atoi(){
     cout<<my.atoi(str)<<endl;
 }
 
+void test_findFirstNonDuplicateChar(){
+    MyString my;
+    string str = "abcdefa";
+    cout<<my.findFirstNonDuplicateChar(str)<<endl;
+}
+
 int main(){
     test_reverse();
     test_atoi();
+    test_findFirstNonDuplicateChar();
 
     return 0;
 }   
