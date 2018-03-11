@@ -30,7 +30,9 @@ public:
     // sortList
     ListNode *sortList(ListNode *head);
     // remove Nth from end
-    ListNode * removeNthFromEnd(ListNode *head, int n);
+    ListNode *removeNthFromEnd(ListNode *head, int n);
+    // delete duplicate nodes
+    ListNode *deleteDuplicates(ListNode *head);
 };
 
 #endif // NODELIST_H

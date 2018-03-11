@@ -23,6 +23,7 @@ void LinkList::printListNode(ListNode *p){
         std::cout<<p->val<<" ";
         p = p->next;
     }
+    std::cout<<"\n\n";
 }
 
 ListNode * LinkList::mergedTwoLists(ListNode *l1, ListNode *l2){
@@ -193,5 +194,25 @@ ListNode *LinkList::removeNthFromEnd(ListNode *head, int n){
         pslow = pslow->next;
     }
     pslow->next = pslow->next->next;
+    return head;
+}
+
+ListNode *LinkList::deleteDuplicates(ListNode *head){
+    if(head==NULL || head->next == NULL)
+        return NULL;
+    ListNode *pbegin = head, *pend = head, *pre = head;
+    while(pend->next != NULL){
+        pre = pend;
+        pend = pend->next;
+        if(pre->val != pend->val){
+            // the value of previous node is different with current node
+            pbegin->next = pend;
+            pbegin = pend;
+            pre = pend;
+ 
+        }
+    }
+    if(pbegin != pend)
+        pbegin->next = pend->next;
     return head;
 }

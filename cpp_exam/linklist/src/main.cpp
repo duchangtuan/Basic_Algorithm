@@ -101,9 +101,21 @@ void test_removeNthFromEnd(){
     
 }
 
+void test_deleteDuplicates(){
+    LinkList link;
+    int arr[] = {1, 1, 1, 1};
+    vector<int> ivec(arr, arr+4);
+    ListNode *p1 = link.createListNode(ivec);
+    link.printListNode(p1);
+    p1 = link.deleteDuplicates(p1);
+    link.printListNode(p1);
+    cout<<endl; 
+}
+
 int main(int argc, char** argv){
     //test_merge();
-    test_reorder();
+    //test_reorder();
     //test_merge2();
     //test_removeNthFromEnd();
+    test_deleteDuplicates();
 }
