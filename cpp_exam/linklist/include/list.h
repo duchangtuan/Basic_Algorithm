@@ -20,6 +20,7 @@ public:
     // Given a singly linked list L: L0→L1→…→Ln-1→Ln,
     // reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
     void reorderList(ListNode *head);
+
     // Reverse the ListNode
     ListNode *reverseListNode(ListNode *head);
     // Merge two sorted linked list
@@ -28,6 +29,8 @@ public:
     ListNode *sort(ListNode *head, ListNode *tail);
     // sortList
     ListNode *sortList(ListNode *head);
+    // remove Nth from end
+    ListNode * removeNthFromEnd(ListNode *head, int n);
 };
 
 #endif // NODELIST_H

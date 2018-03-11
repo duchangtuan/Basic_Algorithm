@@ -103,7 +103,7 @@ void LinkList::reorderList(ListNode *head){
         ListNode *pnext = p->next, *qnext = q->next;
         p->next = q;
         q->next = pnext;
-        q = pnext;
+        p = pnext;
         q = qnext;
     }
 }
@@ -176,4 +176,22 @@ ListNode *LinkList::sortList(ListNode *head){
         cur = cur->next;
     }
     return LinkList::sort(head, pre);
+}
+
+ListNode *LinkList::removeNthFromEnd(ListNode *head, int n){
+    if(head == NULL)
+        return NULL;
+    ListNode *pslow = head, *pfast = head;
+    while(n && pfast){
+        pfast = pfast->next;
+        n--;
+    }
+    if(n==0 && pfast==NULL)
+        return head->next;
+    while(pfast->next){
+        pfast = pfast->next;
+        pslow = pslow->next;
+    }
+    pslow->next = pslow->next->next;
+    return head;
 }
