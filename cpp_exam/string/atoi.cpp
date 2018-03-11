@@ -21,7 +21,7 @@ int atoi(string str){
     }
 
     for(; i < len; i++){
-        if('0' <= str[i] && '9' >= str[i]){
+        if(str[i] >= '0' && str[i] <= '9'){
             ret_64 = ret_64 * 10 + str[i] - '0';
             if(sign == -1 && ret_64 > 2147483648LL)
                 return -2147483648;
