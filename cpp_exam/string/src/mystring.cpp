@@ -6,7 +6,7 @@ using namespace std;
 
 string MyString::reverseString(string str){
     string ret = "";
-    for(int i = 0; i < str.size(); i++)
+    for(unsigned int i = 0; i < str.size(); i++)
         ret.insert(0, 1, str[i]);
 
     return ret;
@@ -21,6 +21,34 @@ string MyString::reverseString2(string str){
         ret[len-i-1] = temp;
     }
     return ret;
+}
+
+void _reverseString(string &str, int i, int j){
+    while(i < j){
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+        i++;
+        j--;
+    }
+}
+
+string MyString::reverseString3(string str){
+    string ret = MyString::reverseString2(str);
+    int word_len = 0; 
+    for(unsigned int i = 0; i < ret.size(); i++){
+        if(ret[i] == ' '){
+            _reverseString(ret, i-word_len, i-1);
+            word_len = 0;
+        }
+        else if(i == ret.size() - 1){
+            _reverseString(ret, i-word_len, i);
+        }   
+        else{
+            word_len++;
+        }
+    }
+    return ret; 
 }
 
 char MyString::findFirstNonDuplicateChar(string str){

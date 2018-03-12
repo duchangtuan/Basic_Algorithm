@@ -11,6 +11,10 @@ public:
 
     string reverseString(string str);
     string reverseString2(string str);
+
+    // reverse string like this: "I love China" -> "China love I"
+    string reverseString3(string str);
+
     int atoi(string str);
     char findFirstNonDuplicateChar(string);
 

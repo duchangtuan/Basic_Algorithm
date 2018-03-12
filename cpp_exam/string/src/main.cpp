@@ -5,9 +5,10 @@ using namespace std;
 void test_reverse(){
     
     MyString my;
-    string str = "hello world";
+    string str = "   hello  world  ";
     cout<<my.reverseString(str)<<endl;
     cout<<my.reverseString2(str)<<endl;
+    cout<<my.reverseString3(str)<<endl;
 }
 
 void test_atoi(){
