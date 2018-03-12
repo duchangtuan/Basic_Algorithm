@@ -90,11 +90,15 @@ vector<int> BinaryTree::postorderTraversal1(TreeNode *root){
 }
 
 vector<int> BinaryTree::postorderTraversal2(TreeNode *root){
+    // use two stacks to realize postorderTraversal.
     vector<int> res;
     if(root == NULL)
         return res;
 
     stack<TreeNode *> S1, S2;
+    // at the first, the root node pushed to S1, when S1 is not empty, pop the stack top node ban push to S2,
+    // if the left child node or right child node is not null of poped node, then push the left child node
+    // and right child node to S1. Until S1 is empty.
     TreeNode *temp = NULL;
     S1.push(root);
 
