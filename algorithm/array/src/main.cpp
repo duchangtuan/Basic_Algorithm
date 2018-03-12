@@ -15,8 +15,21 @@ void test_maxSubArray(){
     cout<<array.maxSubArray_dp(nums)<<endl;
 }
 
+void test_max_profit(){
+    Array array;
+
+    int A[] = {4, 7, 8, 2, 8};
+    vector<int> nums(A, A+5);
+
+    cout<<"Buy and sell only one time the maximum profit is ";
+    cout<<array.max_profit_one_time(nums)<<endl;
+
+    cout<<"Buy and sell mulitple times the maximum profit is ";
+    cout<<array.max_profit_multiple_times(nums)<<endl;
+}
+
 int main(int argc, char** argv){
     test_maxSubArray();
-
+    test_max_profit();
     return 0;
 }
