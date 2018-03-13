@@ -23,6 +23,7 @@ void test_max_profit(){
 
     cout<<"Buy and sell only one time the maximum profit is ";
     cout<<array.max_profit_one_time(nums)<<endl;
+    cout<<array.max_profit_one_time_dp(nums)<<endl;
 
     cout<<"Buy and sell mulitple times the maximum profit is ";
     cout<<array.max_profit_multiple_times(nums)<<endl;

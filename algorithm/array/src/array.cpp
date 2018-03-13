@@ -36,7 +36,7 @@ int Array::maxSubArray_dp(vector<int> &nums){
 int Array::max_profit_one_time(vector<int> &nums){
     int cur_profit = 0, max_profit = 0;
     int min_price = nums[0];
-    for(int i = 1; i < nums.size(); i++){
+    for(unsigned int i = 1; i < nums.size(); i++){
         if(min_price < nums[i]){
             cur_profit = nums[i] - min_price;
         }
@@ -58,8 +58,27 @@ int Array::max_profit_multiple_times(vector<int> &nums){
     if(nums.size() <= 1)
         return 0;
     int max_profit = 0;
-    for(int i = 1; i < nums.size(); i++){
+    for(unsigned int i = 1; i < nums.size(); i++){
         max_profit += nums[i] > nums[i-1] ? nums[i] - nums[i-1] : 0;
     }
     return max_profit;
 }
+
+int Array::max_profit_one_time_dp(std::vector<int> &nums){
+    int len = nums.size();
+    if(len == 0 || len == 1)
+        return 0;
+   
+    vector<int> dp(len);
+    dp[0] = 0;
+    dp[1] = max(0, nums[1] - nums[0]);
+    int maxprofit = max(dp[0], dp[1]);
+    int min_price = min(nums[0], nums[1]);
+    for(int i = 2; i < len; i++){
+        if(nums[i] < min_price)
+            min_price = nums[i]; 
+        dp[i] = max(nums[i] - min_price, dp[i-1]);
+        maxprofit = max(dp[i], maxprofit);
+    }
+    return maxprofit;
+}   
