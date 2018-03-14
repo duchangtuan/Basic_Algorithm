@@ -29,8 +29,25 @@ void test_max_profit(){
     cout<<array.max_profit_multiple_times(nums)<<endl;
 }
 
+void test_twosum(){
+    Array array;
+    
+    int A[] = {1, 2, 3, 5, 7, 9};
+    vector<int> nums(A, A+6);
+    cout<<"Testing twosum function"<<endl;
+    vector<vector<int> > ret = array.twosum(nums, 8);
+    for(unsigned int i = 0; i < ret.size(); i++){
+        for(unsigned int j = 0; j < ret[i].size(); j++){
+            cout<<ret[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+}
+
 int main(int argc, char** argv){
     test_maxSubArray();
     test_max_profit();
+    test_twosum();
     return 0;
 }

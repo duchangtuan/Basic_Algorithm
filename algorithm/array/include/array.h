@@ -5,6 +5,10 @@
 
 class Array{
 public:
+    // Given an array of integers, return indices of the two numbers 
+    //such that they add up to a specific target.
+    std::vector<std::vector<int> > twosum(std::vector<int> &nums, int target);
+
     int maxSubArray(std::vector<int> &nums);
 
     // use dynamic program to solve the problem

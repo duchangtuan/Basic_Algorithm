@@ -3,6 +3,27 @@
 
 using namespace std;
 
+vector<vector<int> > Array::twosum(vector<int> &nums, int target){
+    vector<vector<int> > ret;
+    int len = nums.size();
+    for(int i = 0, j = len -1; i<j; ){
+        if(nums[i] + nums[j] == target){
+            vector<int> temp;
+            temp.push_back(nums[i]);
+            temp.push_back(nums[j]);
+            i++;
+            j--;
+            ret.push_back(temp);
+        }
+        else if(nums[i] + nums[j] < target){
+            i++;
+        }
+        else{
+            j--;
+        }
+    }
+    return ret;
+}
 
 int Array::maxSubArray(vector<int> &nums){
     //
