@@ -6,23 +6,33 @@
 #include"binarytree.h"
 using namespace std;
 
-/*
-vector<int> res;
 
-vector<int> BinaryTree::preorderTraversal(TreeNode *root){
+vector<int> BinaryTree::preorderTraversal_recursive(TreeNode *root){
     BinaryTree::preorder(root);
-    return res;
+    return this->res;
 }
 
 void BinaryTree::preorder(TreeNode *root){
     
     if(root==NULL)
         return;
-    res.push_back(root);
-    preorder(root->left);
-    preorder(root->right);
+    this->res.push_back(root->val);
+    this->preorder(root->left);
+    this->preorder(root->right);
 }
-*/
+
+vector<int> BinaryTree::inorderTraversal_recursive(TreeNode *root){
+    BinaryTree::inorder(root);
+    return this->res;
+}
+
+void BinaryTree::inorder(TreeNode *root){
+    if(root == NULL)
+        return;
+    this->inorder(root->left);
+    this->res.push_back(root->val);
+    this->inorder(root->right);
+}
 
 vector<int> BinaryTree::preorderTraversal(TreeNode *root){
     vector<int> res;

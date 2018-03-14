@@ -24,7 +24,7 @@ void delete_nodes(TreeNode *root){
     }
 }
 
-void test_levelorder(){
+void test_order(){
     TreeNode *root = new TreeNode(1);
     root->left = new TreeNode(2);
     root->right = new TreeNode(3);
@@ -34,13 +34,24 @@ void test_levelorder(){
     root->right->right = new TreeNode(7);
 
     BinaryTree b1;
-    vector<vector<int> > res = b1.levelOrder(root);
-    for(int i = 0; i < res.size(); i++){
-        for(int j = 0; j < res[i].size(); j++){
-            cout<<res[i][j]<<" ";
-        }
-        cout<<endl;
+    // level order
+    //vector<vector<int> > res = b1.levelOrder(root);
+    //for(int i = 0; i < res.size(); i++){
+    //    for(int j = 0; j < res[i].size(); j++){
+    //        cout<<res[i][j]<<" ";
+    //    }
+    //    cout<<endl;
+    //} 
+
+    // preorderTraversal
+    //vector<int> res = b1.preorderTraversal_recursive(root);
+
+    // inorderTraversal
+    vector<int> res = b1.inorderTraversal_recursive(root);
+    for(unsigned int i = 0; i < res.size(); i++){
+        cout<<res[i]<<" ";
     } 
+    cout<<endl;
     delete_nodes(root);
 }
 
@@ -65,8 +76,8 @@ void test_maxdepth(){
 
 
 int main(int argc, char** argv){
-    //test_levelorder();
-    test_maxdepth();
+    test_order();
+    //test_maxdepth();
 }
 
 
