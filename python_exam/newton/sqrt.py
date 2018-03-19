@@ -9,6 +9,8 @@ def sqrt(n):
     f(x) = x^2 - a
     the first derivative of f(x) is f'(x)=2x
     Newton iterative formula is: Xn+1 = Xn - (Xn^2-a)/2Xn = 1/2(Xn + a/Xn)
+
+    for more information: https://www.guokr.com/question/461510/
     """
     EPS = 0.0001
     result = float(n)
