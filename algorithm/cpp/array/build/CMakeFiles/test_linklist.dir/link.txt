@@ -1,1 +1,0 @@
-/usr/bin/c++    -O0 -Wall -g -ggdb   CMakeFiles/test_linklist.dir/src/array.cpp.o CMakeFiles/test_linklist.dir/src/main.cpp.o  -o test_linklist -rdynamic 
