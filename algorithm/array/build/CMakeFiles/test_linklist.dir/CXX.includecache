@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/array.h
+vector
+-
+
+/home/fengxi/Basic_Algorithm/algorithm/array/src/array.cpp
+limits.h
+-
+array.h
+/home/fengxi/Basic_Algorithm/algorithm/array/src/array.h
+
+/home/fengxi/Basic_Algorithm/algorithm/array/src/main.cpp
+iostream
+-
+array.h
+/home/fengxi/Basic_Algorithm/algorithm/array/src/array.h
+

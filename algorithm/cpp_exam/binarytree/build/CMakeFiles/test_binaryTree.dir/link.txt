@@ -1,0 +1,1 @@
+/usr/bin/c++    -O0 -Wall -g -ggdb   CMakeFiles/test_binaryTree.dir/src/binarytree.cpp.o CMakeFiles/test_binaryTree.dir/src/main.cpp.o  -o test_binaryTree -rdynamic 
