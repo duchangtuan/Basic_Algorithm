@@ -103,3 +103,24 @@ int Array::max_profit_one_time_dp(std::vector<int> &nums){
     }
     return maxprofit;
 }   
+
+int Array::findKth(int *nums1, int len1, int *nums2, int len2, int k){
+    if(len1 > len2)
+        return Array::findKth(nums2, len2, nums1, len1, k);
+    if(len1 == 0)
+        return nums2[k-1];
+    if(k == 1)
+        return min(nums1[0], nums2[0]);
+
+    int pa = min(k/2, len1);
+    int pb = k - pa;
+
+    // if nums1[pa-1] < nums2[pb-1], the kth small number should be located after nums1[pa-1] 
+    if(nums1[pa-1] < nums2[pb-1])
+        return Array::findKth(nums1+pa, len1-pa, nums2, len2, k-pa);
+    // if nums1[pa-1] > nums2[pb-1], the kth small number should be located after nums2[pb-1]
+    else if(nums1[pa-1] > nums2[pb-1])
+        return Array::findKth(nums1, len1, nums2+pb, len2-pb, k-pb);
+    else
+        return nums1[pa-1];
+}

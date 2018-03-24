@@ -24,6 +24,9 @@ public:
     // get the max profit in stock market, you can buy and sell multiple times
     // but you must sell before you buy.
     int max_profit_multiple_times(std::vector<int> &nums);
+
+    // find the kth big number from two arrays
+    int findKth(int *nums1, int len1, int *nums2, int len2, int k);
     
 };
 
