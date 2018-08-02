@@ -12,7 +12,8 @@ public:
     string reverseString(string str);
     string reverseString2(string str);
     int atoi(string str);
-    char findFirstNonDuplicateChar(string);
+    char findFirstNonDuplicateChar(string str);
+    int lengthOfLongestSubstring(string str);
 
 private:
     //string _str;

@@ -22,10 +22,17 @@ void test_findFirstNonDuplicateChar(){
     cout<<my.findFirstNonDuplicateChar(str)<<endl;
 }
 
+void test_lengthOfLongestSubstring(){
+    MyString my;
+    string str = "abcdabceda";
+    cout<<my.lengthOfLongestSubstring(str)<<endl;
+}
+
 int main(){
     test_reverse();
     test_atoi();
     test_findFirstNonDuplicateChar();
+    test_lengthOfLongestSubstring();
 
     return 0;
 }   

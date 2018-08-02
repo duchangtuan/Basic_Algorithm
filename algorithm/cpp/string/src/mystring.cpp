@@ -67,3 +67,37 @@ int MyString::atoi(string str){
     }
     return sign * ret_64;
 }
+
+int MyString::lengthOfLongestSubstring(string str){
+    vector<int> ivec(256);
+    for(int i = 0; i < 256; i++)
+        ivec.push_back(0);
+
+    int len = 0, maxlen = 0;
+    int start = 0, maxstart = 0;
+    int i = 0;
+    while(i < str.size()){
+        if(ivec[str[i]] == 1){
+            if(len > maxlen){
+                maxlen = len;
+                start = maxstart;
+            }
+            while(str[i] != str[start]){
+                ivec[str[i]] = 0;
+                start++;
+                len--;
+            }
+            start++;
+        }
+        else{
+            ivec[str[i]] = 1;
+            len++;
+        }
+        i++;
+    }    
+    if(len > maxlen){
+        maxlen = len;
+        maxstart = start;
+    }
+    return maxlen;
+}

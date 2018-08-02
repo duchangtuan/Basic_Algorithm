@@ -42,12 +42,20 @@ void test_twosum(){
         }
         cout<<endl;
     }
-    cout<<endl;
+}
+
+void test_findKth(){
+    Array array;
+    int A[] = {1, 5, 8, 12};
+    int B[] = {4, 7, 9, 10, 14, 18};
+
+    cout<<array.findKth(A, 4, B, 6, 3)<<endl;
 }
 
 int main(int argc, char** argv){
     test_maxSubArray();
     test_max_profit();
     test_twosum();
+    test_findKth();
     return 0;
 }
