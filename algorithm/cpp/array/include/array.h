@@ -25,9 +25,11 @@ public:
     // but you must sell before you buy.
     int max_profit_multiple_times(std::vector<int> &nums);
 
-    // find the kth big number from two arrays
+    // find the kth small number from two arrays
     int findKth(int *nums1, int len1, int *nums2, int len2, int k);
     
+    // find the kth small number from two arrays
+    int findKth2(int *nums1, int len1, int *nums2, int len2, int k);
 };
 
 #endif // ARRAY_H

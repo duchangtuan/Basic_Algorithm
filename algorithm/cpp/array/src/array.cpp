@@ -124,3 +124,25 @@ int Array::findKth(int *nums1, int len1, int *nums2, int len2, int k){
     else
         return nums1[pa-1];
 }
+
+int Array::findKth2(int *nums1, int len1, int *nums2, int len2, int k){
+    if(len1 == 0)
+        return nums2[k-1];
+    else if(len2 == 0)
+        return nums1[k-1];
+
+    int i = 0, j = 0;
+    for(;i < len1 && j < len2;){
+        k--;
+        if(nums1[i] < nums2[j]){
+            if(k == 0)
+                return nums1[i];
+            i++;
+        }
+        else if(k==0)
+            return min(nums1[i], nums2[j]);
+        else
+            j++;
+    }
+    return (i>=len1) ? nums2[j+k-1] : nums1[i+k-1];
+}

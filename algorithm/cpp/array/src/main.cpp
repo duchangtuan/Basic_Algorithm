@@ -50,6 +50,7 @@ void test_findKth(){
     int B[] = {4, 7, 9, 10, 14, 18};
 
     cout<<array.findKth(A, 4, B, 6, 3)<<endl;
+    cout<<array.findKth2(A, 4, B, 6, 3)<<endl;
 }
 
 int main(int argc, char** argv){
