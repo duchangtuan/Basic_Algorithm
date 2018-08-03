@@ -22,7 +22,8 @@ void test_merge(){
     link2.printListNode(p2);
     cout<<endl;
 
-    ListNode *p = link1.mergedTwoListsRecursively(p1, p2);
+    //ListNode *p = link1.mergedTwoListsRecursively(p1, p2);
+    ListNode *p = link1.mergedTwoLists2(p1, p2);
     cout<<"Node list after merged = ";
     link2.printListNode(p);
     cout<<endl;
@@ -71,11 +72,11 @@ void test_merge2(){
     vector<int> ivec3(arr3, arr3+8);
     ListNode *p3 = link3.createListNode(ivec3);
 
-    cout<<"before sort, the list is:";
+    cout<<"before sort, the list is: ";
     link3.printListNode(p3);
     cout<<endl;
     ListNode *head = link3.sortList(p3);
-    cout<<"after sort, the list is:";
+    cout<<"after sort, the list is: ";
     link3.printListNode(head);
     cout<<endl;
 }
@@ -113,9 +114,9 @@ void test_deleteDuplicates(){
 }
 
 int main(int argc, char** argv){
-    //test_merge();
+    test_merge();
     //test_reorder();
-    //test_merge2();
+    test_merge2();
     //test_removeNthFromEnd();
-    test_deleteDuplicates();
+    //test_deleteDuplicates();
 }

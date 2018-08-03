@@ -51,6 +51,42 @@ ListNode * LinkList::mergedTwoLists(ListNode *l1, ListNode *l2){
     return result;
 }
 
+ListNode *LinkList::mergedTwoLists2(ListNode *l1, ListNode *l2){
+    ListNode *merged_head = NULL;
+    ListNode *merged_tail = NULL;
+    
+    while(l1 && l2)
+    {
+    	if(l1->val < l2->val){
+    		if(merged_head == NULL){
+    			merged_head = l1;
+    			merged_tail = l1;
+    		}
+    		else{
+    			merged_tail->next = l1;
+    			merged_tail = merged_tail->next;
+    		}
+    		l1 = l1->next;
+    	}
+    	else{
+    		if(merged_head == NULL){
+    			merged_head = l2;
+    			merged_tail = l2;
+    		}
+    		else{
+    			merged_tail->next = l2;
+    			merged_tail = merged_tail->next;
+    		}
+    		l2 = l2->next;
+    	}
+    }
+    if(l1)
+    	merged_tail->next = l1;
+    if(l2)
+    	merged_tail->next = l2;
+    return merged_head; 
+}
+
 ListNode *LinkList::mergedTwoListsRecursively(ListNode *l1, ListNode *l2){
     if(l1 == NULL)
         return l2;
@@ -160,8 +196,8 @@ ListNode *LinkList::sort(ListNode *head, ListNode *tail){
         slow = slow->next;
     }
 
-    ListNode *l_head = sort(head, pre);
-    ListNode *r_head = sort(slow, tail);
+    ListNode *l_head = LinkList::sort(head, pre);
+    ListNode *r_head = LinkList::sort(slow, tail);
     ListNode *merged_head = LinkList::mergeList(l_head, r_head);
 
     return merged_head;
@@ -170,13 +206,13 @@ ListNode *LinkList::sort(ListNode *head, ListNode *tail){
 ListNode *LinkList::sortList(ListNode *head){
     if(head == NULL || head->next == NULL)
         return head;
-    ListNode *pre = NULL;
+    ListNode *tail = NULL;
     ListNode *cur = head;
     while(cur != NULL){
-        pre = cur;
+        tail = cur;
         cur = cur->next;
     }
-    return LinkList::sort(head, pre);
+    return LinkList::sort(head, tail);
 }
 
 ListNode *LinkList::removeNthFromEnd(ListNode *head, int n){

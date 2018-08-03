@@ -15,6 +15,7 @@ public:
     ListNode *createListNode(std::vector<int> &nums);
     void printListNode(ListNode *head);
     ListNode *mergedTwoLists(ListNode *l1, ListNode *l2);
+    ListNode *mergedTwoLists2(ListNode *l1, ListNode *l2);
     ListNode *mergedTwoListsRecursively(ListNode *l1, ListNode *l2);
 
     // Given a singly linked list L: L0→L1→…→Ln-1→Ln,

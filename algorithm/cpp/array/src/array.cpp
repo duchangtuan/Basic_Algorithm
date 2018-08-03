@@ -74,7 +74,7 @@ int Array::max_profit_one_time(vector<int> &nums){
 
 // get the maximum profit and you can buy and sell
 // as much as possible, but you must sell the stock
-// before you bug
+// before you buy
 int Array::max_profit_multiple_times(vector<int> &nums){
     if(nums.size() <= 1)
         return 0;
