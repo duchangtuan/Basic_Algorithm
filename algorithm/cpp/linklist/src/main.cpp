@@ -46,6 +46,24 @@ void test_reorder(){
     cout<<endl;
 }
 
+void test_quicksort(){
+    LinkList link1;
+    int arr[] = {1, 4, 3, 2, 5};
+    vector<int> ivec1(arr, arr+5);
+    ListNode *p1 = link1.createListNode(ivec1);
+
+    cout<<"Original List Node = ";
+    link1.printListNode(p1);
+    cout<<endl;
+
+    ListNode *p2 = link1.getLast(p1);
+    link1.quickSort(p1, p2);
+
+    cout<<"After reorder, the list node = ";
+    link1.printListNode(p1);
+    cout<<endl;
+}
+
 void test_merge2(){
 	LinkList link1, link2, link3;
     int arr1[] = {1, 3, 5, 7, 9};
@@ -117,6 +135,7 @@ int main(int argc, char** argv){
     test_merge();
     //test_reorder();
     test_merge2();
+    test_quicksort();
     //test_removeNthFromEnd();
     //test_deleteDuplicates();
 }

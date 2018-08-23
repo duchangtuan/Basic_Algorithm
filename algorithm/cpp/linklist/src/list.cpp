@@ -4,6 +4,37 @@
 #include"../include/list.h"
 
 
+ListNode *getPartition(ListNode *pBegin, ListNode *pEnd){
+    int key = pBegin->val;
+    ListNode *p = pBegin;
+    ListNode *q = pBegin->next;
+
+    while(q != pEnd){
+        if(q->val < key){
+            p = p->next;
+            std::swap(p->val, q->val);
+        }
+        q = q->next;
+    }
+    std::swap(p->val, pBegin->val);
+    return p;
+}
+
+void LinkList::quickSort(ListNode *p1, ListNode *p2){
+    if(p1 != p2){
+        ListNode *p = getPartition(p1, p2);
+        quickSort(p1, p);
+        quickSort(p->next, p2);
+    }
+}
+
+ListNode *LinkList::getLast(ListNode *p1){
+    while(p1!=NULL){
+        p1 = p1->next;
+    }
+    return p1;
+}
+
 ListNode *LinkList::createListNode(std::vector<int> &nums){
     ListNode *p1 = new ListNode(0);
     ListNode *p2 = p1;

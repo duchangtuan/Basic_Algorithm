@@ -30,10 +30,14 @@ public:
     ListNode *sort(ListNode *head, ListNode *tail);
     // sortList
     ListNode *sortList(ListNode *head);
+    // sort list use quick sort
+    void quickSort(ListNode *head, ListNode *end);
     // remove Nth from end
     ListNode *removeNthFromEnd(ListNode *head, int n);
     // delete duplicate nodes
     ListNode *deleteDuplicates(ListNode *head);
+    // get last node
+    ListNode *getLast(ListNode *head);
 };
 
 #endif // NODELIST_H
